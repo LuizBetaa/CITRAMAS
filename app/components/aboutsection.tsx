@@ -32,7 +32,7 @@ export default function AboutSection() {
 
       <style jsx>{`
         .about-section {
-          padding: 120px 48px;
+          padding: clamp(80px, 10vh, 120px) clamp(24px, 4vw, 48px);
           background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
           display: flex;
           justify-content: center;
@@ -56,8 +56,8 @@ export default function AboutSection() {
         }
 
         .bento-card {
-          padding: 48px;
-          border-radius: 40px;
+          padding: clamp(24px, 3.5vw, 48px);
+          border-radius: clamp(24px, 3vw, 40px);
           position: relative;
           overflow: hidden;
           transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -88,10 +88,10 @@ export default function AboutSection() {
 
         .bento-main-title {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 56px;
+          font-size: clamp(36px, 4vw, 56px);
           font-weight: 800;
           color: #ffc107;
-          margin-bottom: 24px;
+          margin-bottom: clamp(16px, 2vw, 24px);
           letter-spacing: -1px;
           position: relative;
           z-index: 2;
@@ -100,10 +100,10 @@ export default function AboutSection() {
 
         .bento-subtitle {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 26px;
+          font-size: clamp(20px, 2vw, 26px);
           font-weight: 700;
           color: #ffffff;
-          margin-bottom: 30px;
+          margin-bottom: clamp(20px, 2.5vw, 30px);
           position: relative;
           z-index: 2;
           line-height: 1.3;
@@ -111,7 +111,7 @@ export default function AboutSection() {
 
         .bento-text {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 17px;
+          font-size: clamp(14px, 1.2vw, 17px);
           line-height: 1.8;
           color: rgba(255, 255, 255, 0.9);
           font-weight: 500;
@@ -163,7 +163,7 @@ export default function AboutSection() {
 
         .division-name {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 20px;
+          font-size: clamp(16px, 1.5vw, 20px);
           font-weight: 700;
           color: #ffffff;
           line-height: 1.4;

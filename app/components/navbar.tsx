@@ -96,7 +96,7 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 24px 48px;
+          padding: clamp(16px, 2vw, 24px) clamp(24px, 4vw, 48px);
           background: transparent;
           position: fixed;
           width: 100%;
@@ -123,7 +123,7 @@ export default function Navbar() {
 
         .brand-name {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 20px;
+          font-size: clamp(14px, 1.5vw, 20px);
           font-weight: 600;
           letter-spacing: 1px;
           transition: color 0.4s ease;
@@ -132,7 +132,7 @@ export default function Navbar() {
         .nav-links {
           display: flex;
           align-items: center;
-          gap: 36px;
+          gap: clamp(16px, 2.5vw, 36px);
           list-style: none;
           margin: 0;
           padding: 0;
@@ -141,7 +141,7 @@ export default function Navbar() {
 
         :global(.nav-link) {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-          font-size: 13px !important;
+          font-size: clamp(11px, 1.2vw, 13px) !important;
           font-weight: 700 !important;
           text-decoration: none !important;
           letter-spacing: 1.5px !important;

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .box {
+    width: 200px;
+    height: 95.33px; /* 300/143 aspect ratio */
+    border: 1px solid red;
+    margin: 10px;
+    background-image: url('/image/client/FULL%20LOGO.png');
+    background-size: 400% 2100%;
+    background-repeat: no-repeat;
+  }
+  .box2 {
+    width: 208px;
+    height: 90.05px; /* 2.31 aspect ratio */
+    border: 1px solid green;
+    margin: 10px;
+    background-image: url('/image/client/FULL%20LOGO.png');
+    background-size: 400% 2100%;
+    background-repeat: no-repeat;
+  }
+</style>
+</head>
+<body>
+  <h2>Row 16 (OT)</h2>
+  <div class="box" id="ot1"></div>
+  <div class="box2" id="ot2"></div>
+  <script>
+    const col = 0; // OT is row 16, col 0?
+    // Let's check: 16 = 4 * 4 + 0. Yes, col 0, row 4. Wait, OT is index 63!
+    // clientsData has OT at index 63.
+    // 63 % 4 = 3 (column 3). Math.floor(63 / 4) = 15 (row 15).
+    // Let's verify clientsData: 0 to 63. 64 items. Wait, I said OT is row 16. 
+    // Wait! Let me check `clientsData.ts` line 67!
+    // `67:   { name: "OT", logo: "/image/clients/ot.png" },`
+    // Wait, the index of OT is 61 because it starts at line 7 (index 0). 67 - 7 = 60.
+    // Index 60. 60 % 4 = 0. Column 0. 60 / 4 = 15. Row 15. (16th row).
+    // Correct! OT is at column 0, row 15.
+    
+    // Sari Roti is line 71. Index = 64. 64 % 4 = 0. Row 16.
+    
+    const ROWS = 21;
+    const COLS = 4;
+    
+    function setPos(id, col, row) {
+      const el = document.getElementById(id);
+      const posX = (col * 100) / (COLS - 1);
+      const posY = (row * 100) / (ROWS - 1);
+      el.style.backgroundPosition = `${posX}% ${posY}%`;
+    }
+    
+    setPos('ot1', 0, 15);
+    setPos('ot2', 0, 15);
+  </script>
+</body>
+</html>

@@ -1,26 +1,20 @@
 "use client";
 
+import { useLanguage } from "./language-context";
+
 export default function AboutSection() {
-  const divisions = [
-    "HYDRAULICS & PNEUMATICS",
-    "ALAT-ALAT TEKNIK",
-    "JIG, FIXTURE, MOULD, & MESIN KHUSUS",
-    "OTOMATISASI INDUSTRI",
-    "TELEKOMUNIKASI & OTOMATISASI KANTOR",
-    "PROYEK"
-  ];
+  const { t } = useLanguage();
+  const divisions = t.about.divisions;
 
   return (
-    <section className="about-section">
+    <section id="about" className="about-section" data-nav-theme="dark">
       <div className="bento-container animate-fade-in">
         
         {/* Main About Us Block */}
         <div className="bento-card bento-about">
-          <h2 className="bento-main-title">About us</h2>
-          <h3 className="bento-subtitle">Salah Satu Perusahaan Barang Industri Tertua di Indonesia</h3>
-          <p className="bento-text">
-            Dengan kantor pusat yang terletak di Jakarta, Indonesia, PT Citramas Alfa Sejahtera beroperasi dalam berbagai macam barang, baik barang-barang industri dan alat-alat teknik, maupun alat telekomunikasi dan sistem otomatisasi kantor. Sejak tahun 1990, kami telah melayani berbagai pelanggan, mulai dari perorangan dan usaha kecil menengah sampai perusahaan multinasional. Kami bertujuan untuk memperoleh pengakuan di seluruh Indonesia dan di luar negeri untuk keahlian kami. Pengalaman dan jaringan yang luas memastikan standar tertinggi dalam kualitas dan pelayanan kami.
-          </p>
+          <h2 className="bento-main-title">{t.about.title}</h2>
+          <h3 className="bento-subtitle">{t.about.subtitle}</h3>
+          <p className="bento-text">{t.about.text}</p>
           <div className="watermark"></div>
         </div>
 
@@ -295,3 +289,4 @@ export default function AboutSection() {
     </section>
   );
 }
+

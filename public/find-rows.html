@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <img id="img" src="/image/client/FULL LOGO.png" style="display:none;" />
+  <div id="output">Calculating...</div>
+  <script>
+    window.onload = function() {
+      const img = document.getElementById('img');
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      
+      const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imgData.data;
+      
+      let rows = [];
+      let inRow = false;
+      let rowStart = 0;
+      
+      for (let y = 0; y < canvas.height; y++) {
+        let hasColor = false;
+        for (let x = 0; x < canvas.width; x++) {
+          const index = (y * canvas.width + x) * 4;
+          const r = data[index];
+          const g = data[index+1];
+          const b = data[index+2];
+          const a = data[index+3];
+          // Check if pixel is NOT white (allowing some tolerance for anti-aliasing)
+          if (a > 10 && (r < 250 || g < 250 || b < 250)) {
+            hasColor = true;
+            break;
+          }
+        }
+        
+        if (hasColor && !inRow) {
+          inRow = true;
+          rowStart = y;
+        } else if (!hasColor && inRow) {
+          inRow = false;
+          rows.push({ start: rowStart, end: y - 1 });
+        }
+      }
+      
+      if (inRow) {
+        rows.push({ start: rowStart, end: canvas.height - 1 });
+      }
+      
+      let out = `Found ${rows.length} rows.<br><br>`;
+      out += rows.map((r, i) => `Row ${i}: start=${r.start}, end=${r.end}, height=${r.end - r.start}`).join('<br>');
+      
+      document.getElementById('output').innerHTML = out;
+    };
+  </script>
+</body>
+</html>

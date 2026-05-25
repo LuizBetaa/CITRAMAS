@@ -12,6 +12,11 @@ export default function Home() {
       <AboutSection />
       <VisiMisiSection />
       <DNASection />
-    </main> 
+    </main>
   );
+
 }
+
+
+
+

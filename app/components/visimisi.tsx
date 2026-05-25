@@ -1,58 +1,44 @@
 "use client";
 
 import React from 'react';
+import { useLanguage } from "./language-context";
 
 export default function VisiMisiSection() {
-  const missions = [
-    {
-      title: "Jaminan Kepuasan Pelanggan",
-      desc: "Kami memberikan jaminan berupa produk berkualitas. Hanya produk dengan kualitas terbaik yang tepat untuk Anda.",
-      image: "/image/1.jpg" // Ganti dengan nama file foto pertama Anda di folder public
-    },
-    {
-      title: "Pelayanan Pelanggan Kelas Dunia",
-      desc: "Kami menyediakan layanan pelanggan terbaik berkelas dunia. Staff kami siap membantu menyelesaikan masalah Anda.",
-      image: "/image/2.jpg" // Ganti dengan nama file foto kedua Anda di folder public
-    },
-    {
-      title: "Pemimpin Pasar di Industrinya",
-      desc: "Kami berusaha menjadi pemimpin pasar dalam industri melalui peningkatan kualitas tanpa henti di setiap bagian yang ada.",
-      image: "/image/gedung.jpg" // Ganti dengan nama file foto ketiga Anda di folder public
-    }
-  ];
+  const { t } = useLanguage();
+  const missions = t.visi.missions as ReadonlyArray<{ title: string; desc: string; image?: string }>;
+  const defaultImages: Record<number, string> = {
+    1: "/image/1.jpg",
+    2: "/image/2.jpg",
+    3: "/image/gedung.jpg",
+  };
 
   return (
-    <section className="visi-misi-section">
+    <section id="visi-misi" className="visi-misi-section" data-nav-theme="dark">
       {/* Visi Section */}
       <div className="visi-container">
-        <h2 className="section-title">Visi Kami</h2>
-        <p className="visi-statement">
-          "Menjadi perusahaan kelas dunia dengan standar tertinggi dalam <span className="text-yellow">kualitas</span> dan <span className="text-yellow">pelayanan</span>."
-        </p>
+        <h2 className="section-title">{t.visi.title}</h2>
+        <p className="visi-statement">{t.visi.statement}</p>
       </div>
 
       {/* Misi Section */}
       <div className="misi-container">
-        <h2 className="section-title">Misi Kami</h2>
+        <h2 className="section-title">{t.visi.missionTitle}</h2>
         <div className="misi-grid">
-          {missions.map((mission, index) => (
-            <div key={index} className="misi-card" style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="misi-image-wrapper">
-                {mission.image ? (
-                  <img src={mission.image} alt={mission.title} className="misi-image" />
-                ) : (
-                  <div className="image-placeholder">
-                     <span className="placeholder-text">Foto {index + 1}</span>
-                  </div>
-                )}
+          {missions.map((mission, index) => {
+            const imageSrc = mission.image ?? defaultImages[index + 1];
+            return (
+              <div key={index} className="misi-card" style={{ animationDelay: `${index * 0.2}s` }}>
+                <div className="misi-image-wrapper">
+                  <img src={imageSrc} alt={mission.title} className="misi-image" />
+                </div>
+                <div className="misi-content-box">
+                  <h3 className="misi-title">{mission.title}</h3>
+                  <p className="misi-desc">{mission.desc}</p>
+                </div>
+                <div className="card-accent-line"></div>
               </div>
-              <div className="misi-content-box">
-                <h3 className="misi-title">{mission.title}</h3>
-                <p className="misi-desc">{mission.desc}</p>
-              </div>
-              <div className="card-accent-line"></div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -292,3 +278,4 @@ export default function VisiMisiSection() {
     </section>
   );
 }
+

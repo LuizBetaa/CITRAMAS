@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .box {
+    width: 200px;
+    height: 95.33px; /* 2.09 aspect ratio */
+    border: 1px solid red;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  .box2 {
+    width: 208px;
+    height: 90.05px; /* 2.31 aspect ratio */
+    border: 1px solid green;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  img {
+    position: absolute;
+    width: 400%;
+    height: 2100%;
+    transform-origin: top left;
+  }
+</style>
+</head>
+<body>
+  <h2>Row 16 (OT)</h2>
+  <div class="box" id="ot1">
+    <img src="/image/client/FULL LOGO.png" id="img1" />
+  </div>
+  <div class="box2" id="ot2">
+    <img src="/image/client/FULL LOGO.png" id="img2" />
+  </div>
+  <script>
+    const col = 0; // Column 0
+    const row = 15; // Row 16 (OT)
+    
+    document.getElementById('img1').style.left = `-${col * 100}%`;
+    document.getElementById('img1').style.top = `-${row * 100}%`;
+    
+    document.getElementById('img2').style.left = `-${col * 100}%`;
+    document.getElementById('img2').style.top = `-${row * 100}%`;
+  </script>
+</body>
+</html>

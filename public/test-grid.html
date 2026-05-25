@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+  body { margin: 0; padding: 20px; background: #333; }
+  .img-container { position: relative; display: inline-block; }
+  img { width: 832px; height: 1891px; opacity: 0.8; }
+  .grid-line { position: absolute; left: 0; width: 100%; height: 1px; background: red; z-index: 10; }
+</style>
+</head>
+<body>
+  <div class="img-container">
+    <img src="/image/client/FULL LOGO.png" alt="logo" />
+    <!-- We will draw 22 lines assuming 22 rows -->
+    <script>
+      const container = document.querySelector('.img-container');
+      const rows = 23;
+      for (let i = 0; i <= rows; i++) {
+        const line = document.createElement('div');
+        line.className = 'grid-line';
+        line.style.top = (i * 100 / rows) + '%';
+        container.appendChild(line);
+      }
+    </script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+DOBOT_UPDATE=$(cat << 'EOF'
+  "dobot": {
+    slug: "dobot",
+    name: "Dobot",
+    logo: "/image/brand/dobot-1.png",
+    coverImage: "/image/brand/dobot-1.png",
+    description: "DOBOT adalah penyedia terkemuka dunia untuk solusi lengan robotik cerdas, didedikasikan untuk pengembangan robot serbaguna.",
+    products: [{
+      name: "DOBOT Magician",
+      images: ["/image/brand/dekripsi_produk/DOBOT/Dobot-Magician.png"],
+      description: "DOBOT Magician memiliki berbagai varian untuk memenuhi kebutuhan berbeda. Basic Plan menyediakan fungsi-fungsi dasar pada lengan robotik. Education Plan mencakup semua fungsi dalam Basic Plan dan memiliki fungsi tingkat lanjut: Laser, Koneksi Bluetooth, Koneksi Wi-Fi, dan Joystick control. Conveyor Belt Kit untuk Intelligent Logistics memungkinkan membangun lini produksi kecil yang pintar dengan DOBOT Magician, mencakup fungsi membedakan warna dan sensor. Linear Rail Kit untuk Intelligent Manufacturing memberikan cakupan kerja yang sangat luas pada DOBOT Magician, terintegrasi dengan perangkat lunak siap pakai. Visual Kit untuk Artificial Intelligence memberikan kesempatan untuk membangun sistem pemilahan/pengurutan secara visual dengan DOBOT dan perpustakaan pengembangan untuk mengvisualisasikan aplikasi-aplikasi dengan DOBOT.",
+      plans: [{ name: "Pilihan Produk", details: "DOBOT Magician Basic Plan, Education Plan, Conveyor Belt Kit, Linear Rail Kit, Visual Kit, Advanced Kit, Professional Edition." }]
+    }]
+  },
+EOF
+)

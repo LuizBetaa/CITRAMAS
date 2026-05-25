@@ -2,17 +2,25 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "./language-context";
+
 export default function HeroSection() {
+  const { t } = useLanguage();
+
   return (
-    <section className="hero">
+    <section className="hero" data-nav-theme="light">
       <div className="hero-bg">
-  <Image
-    src="/image/building.jpg"
-    alt="Building"
-    fill
-    style={{ objectFit: "cover", opacity: 0.12 }}
-  />
-</div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/image/building.jpg"
+          className="hero-video"
+        >
+          <source src="https://cdn.coverr.co/videos/coverr-industrial-factory-5241/1080p.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       {/* Left: Premium main image with glassmorphism badge and glowing orb */}
       <div className="hero-images">
@@ -50,12 +58,12 @@ export default function HeroSection() {
         </h1>
 
         <p className="hero-desc animate-2">
-          Hydraulic, Pneumatic System & Engineering, Distribution Componets, Telecommunication, jig & Fixture, Press Parts, Special Purpose Machine Maker, and Office Equipment System
+          {t.hero.desc}
         </p>
 
         <div className="animate-3">
-          <Link href="/contact" className="cta-button">
-            Call to action
+          <Link href="/contact#contact" className="cta-button">
+            {t.hero.cta}
           </Link>
         </div>
       </div>
@@ -63,7 +71,7 @@ export default function HeroSection() {
       {/* Right Side Decoration - Simple & Minimalist */}
       <div className="hero-side-deco">
         <div className="deco-line"></div>
-        <div className="deco-label">SINCE 1990</div>
+        <div className="deco-label">{t.hero.since1990}</div>
         <div className="deco-dot"></div>
       </div>
 
@@ -79,10 +87,20 @@ export default function HeroSection() {
           gap: 80px;
         }
 
-        /* Faded building background */
+        /* Faded video background */
         .hero-bg {
           position: absolute;
           inset: 0;
+          z-index: 0;
+        }
+
+        .hero-video {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.15;
           z-index: 0;
         }
 
@@ -393,3 +411,4 @@ export default function HeroSection() {
     </section>
   );
 }
+

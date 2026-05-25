@@ -1,34 +1,39 @@
 "use client";
 
 import React from 'react';
+import { useLanguage } from "./language-context";
 
 export default function DNASection() {
-  const dnaItems = [
-    { id: 1, title: "Accuracy", desc: "Ketepatan dan ketelitian dalam setiap aspek pekerjaan kami.", image: "/image/accuracy.jpg" },
-    { id: 2, title: "Active", desc: "Proaktif dan penuh inisiatif dalam menghadapi setiap tantangan.", image: "/image/active.jpg" },
-    { id: 3, title: "Continuous", desc: "Peningkatan kualitas yang berkelanjutan tanpa henti.", image: "/image/continuous.jpg" },
-    { id: 4, title: "Integrity", desc: "Menjunjung tinggi kejujuran dan etika profesional.", image: "/image/integrity.jpg" },
-    { id: 5, title: "Motivated", desc: "Selalu terdorong untuk memberikan hasil yang terbaik.", image: "/image/motivated.jpg" },
-    { id: 6, title: "Reliability", desc: "Jangan khawatir, Anda dapat mengandalkan kami.", image: "/image/reliability.jpg" },
-    { id: 7, title: "Sustainability", desc: "Berkomitmen pada praktik yang berkelanjutan dan berwawasan lingkungan.", image: "/image/sustainability.jpg" },
-    { id: 8, title: "Team Work", desc: "Bekerja sama dan saling mendukung untuk mencapai kesuksesan bersama.", image: "/image/teamwork.jpg" }
-  ];
+  const { t } = useLanguage();
+  const dnaItems = t.dna.items as readonly { id: number; title: string; desc: string; image?: string }[];
+  const defaultImages: Record<number, string> = {
+    1: "/image/accuracy.jpg",
+    2: "/image/active.jpg",
+    3: "/image/continuous.jpg",
+    4: "/image/integrity.jpg",
+    5: "/image/motivated.jpg",
+    6: "/image/reliability.jpg",
+    7: "/image/sustainability.jpg",
+    8: "/image/teamwork.jpg",
+  };
 
   return (
-    <section className="dna-section">
+    <section id="dna" className="dna-section" data-nav-theme="light">
       <div className="dna-container">
-        <h2 className="section-title">DNA Kami</h2>
+        <h2 className="section-title">{t.dna.title}</h2>
         
         <div className="dna-accordion">
-          {dnaItems.map((item, index) => (
-            <div key={item.id} className="dna-card">
-              <div className="dna-image-wrapper">
-                {item.image ? (
-                  <img src={item.image} alt={item.title} className="dna-image" />
-                ) : (
-                  <div className="image-placeholder"></div>
-                )}
-              </div>
+          {dnaItems.map((item) => {
+            const imageSrc = item.image ?? defaultImages[item.id];
+            return (
+              <div key={item.id} className="dna-card">
+                <div className="dna-image-wrapper">
+                  {imageSrc ? (
+                    <img src={imageSrc} alt={item.title} className="dna-image" />
+                  ) : (
+                    <div className="image-placeholder"></div>
+                  )}
+                </div>
               
               <div className="dna-gradient"></div>
 
@@ -44,7 +49,8 @@ export default function DNASection() {
                 <p className="dna-desc">{item.desc}</p>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -141,7 +147,7 @@ export default function DNASection() {
         }
 
         .dna-card:hover .dna-gradient {
-          background: linear-gradient(to top, rgba(255, 193, 7, 0.95) 0%, rgba(255, 193, 7, 0.5) 50%, rgba(0,0,0,0) 100%);
+          background: linear-gradient(to top, rgba(255, 193, 7, 0.85) 0%, rgba(255, 193, 7, 0.3) 35%, rgba(0,0,0,0) 70%);
         }
 
         .dna-title-vertical {
@@ -275,3 +281,4 @@ export default function DNASection() {
     </section>
   );
 }
+

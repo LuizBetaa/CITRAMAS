@@ -81,10 +81,10 @@ export default function HeroSection() {
           display: flex;
           align-items: center;
           min-height: 100vh;
-          padding: 140px 48px 60px 48px;
+          padding: clamp(100px, 12vh, 140px) clamp(24px, 4vw, 48px) 60px clamp(24px, 4vw, 48px);
           overflow: hidden;
           background: #f7f7f7;
-          gap: 80px;
+          gap: clamp(40px, 6vw, 80px);
         }
 
         /* Faded video background */
@@ -108,8 +108,8 @@ export default function HeroSection() {
         .hero-images {
           position: relative;
           flex-shrink: 0;
-          width: 480px;
-          height: 520px;
+          width: clamp(340px, 35vw, 480px);
+          height: clamp(380px, 40vw, 520px);
           z-index: 1;
         }
 
@@ -152,8 +152,8 @@ export default function HeroSection() {
           position: absolute;
           top: 50%;
           left: 50%;
-          width: 320px;
-          height: 320px;
+          width: clamp(220px, 25vw, 320px);
+          height: clamp(220px, 25vw, 320px);
           background: #ffc107;
           border-radius: 50%;
           filter: blur(80px);
@@ -239,7 +239,7 @@ export default function HeroSection() {
 
         .hero-title {
           font-family: 'Segoe UI', sans-serif;
-          font-size: 64px;
+          font-size: clamp(40px, 4.5vw, 64px);
           font-weight: 700;
           line-height: 1.15;
           margin: 0 0 20px;
@@ -255,7 +255,7 @@ export default function HeroSection() {
 
         .hero-desc {
           font-family: 'Segoe UI', sans-serif;
-          font-size: 18px;
+          font-size: clamp(16px, 1.2vw, 18px);
           color: #555555;
           line-height: 1.7;
           margin: 0 0 32px;

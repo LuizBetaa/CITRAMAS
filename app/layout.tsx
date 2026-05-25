@@ -5,6 +5,7 @@ import { LanguageProvider } from "./components/language-context";
 export const metadata: Metadata = {
   title: "PT. Citramas Alfa Sejahtera",
   description: "Technology by Strategy",
+  viewport: 'width=device-width, initial-scale=1',
 };
 
 export default function RootLayout({

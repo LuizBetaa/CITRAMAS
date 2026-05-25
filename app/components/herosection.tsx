@@ -80,11 +80,11 @@ export default function HeroSection() {
           position: relative;
           display: flex;
           align-items: center;
-          min-height: 85vh;
-          padding: 100px 48px 40px 48px;
+          min-height: 100vh;
+          padding: 140px 48px 60px 48px;
           overflow: hidden;
           background: #f7f7f7;
-          gap: 64px;
+          gap: 80px;
         }
 
         /* Faded video background */
@@ -108,8 +108,8 @@ export default function HeroSection() {
         .hero-images {
           position: relative;
           flex-shrink: 0;
-          width: 420px;
-          height: 460px;
+          width: 480px;
+          height: 520px;
           z-index: 1;
         }
 
@@ -117,9 +117,9 @@ export default function HeroSection() {
           position: relative;
           width: 100%;
           height: 100%;
-          border-radius: 40px 140px 40px 140px;
+          border-radius: 40px 160px 40px 160px;
           overflow: hidden;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.14);
+          box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
           transform: translateY(0);
           transition: transform 0.4s ease, box-shadow 0.4s ease;
           z-index: 1;
@@ -152,11 +152,11 @@ export default function HeroSection() {
           position: absolute;
           top: 50%;
           left: 50%;
-          width: 280px;
-          height: 280px;
+          width: 320px;
+          height: 320px;
           background: #ffc107;
           border-radius: 50%;
-          filter: blur(72px);
+          filter: blur(80px);
           opacity: 0.5;
           transform: translate(-50%, -50%);
           animation: floatOrb 8s ease-in-out infinite;
@@ -178,17 +178,17 @@ export default function HeroSection() {
 
         .floating-badge {
           position: absolute;
-          bottom: 44px;
-          left: -36px;
+          bottom: 50px;
+          left: -40px;
           background: rgba(255, 255, 255, 0.85);
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
-          padding: 16px 22px;
-          border-radius: 18px;
+          padding: 18px 24px;
+          border-radius: 20px;
           display: flex;
           align-items: center;
-          gap: 14px;
-          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+          gap: 16px;
+          box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
           border: 1px solid rgba(255, 255, 255, 0.5);
           z-index: 2;
           animation: float 5s ease-in-out infinite;
@@ -201,8 +201,8 @@ export default function HeroSection() {
         }
 
         .badge-icon {
-          width: 44px;
-          height: 44px;
+          width: 48px;
+          height: 48px;
           background: #1a1a1a;
           border-radius: 14px;
           display: flex;
@@ -234,15 +234,15 @@ export default function HeroSection() {
         .hero-content {
           position: relative;
           z-index: 1;
-          max-width: 820px;
+          max-width: 900px; /* Much wider to allow 2-line layout */
         }
 
         .hero-title {
           font-family: 'Segoe UI', sans-serif;
-          font-size: 52px;
+          font-size: 64px;
           font-weight: 700;
-          line-height: 1.12;
-          margin: 0 0 18px;
+          line-height: 1.15;
+          margin: 0 0 20px;
         }
 
         .text-black {
@@ -255,11 +255,11 @@ export default function HeroSection() {
 
         .hero-desc {
           font-family: 'Segoe UI', sans-serif;
-          font-size: 16px;
+          font-size: 18px;
           color: #555555;
-          line-height: 1.65;
-          margin: 0 0 28px;
-          max-width: 760px;
+          line-height: 1.7;
+          margin: 0 0 32px;
+          max-width: 850px;
         }
 
         :global(.cta-button) {
@@ -293,12 +293,11 @@ export default function HeroSection() {
 
         @media (max-width: 1024px) {
           .hero {
-            padding: 120px 20px 40px;
-            gap: 36px;
+            padding: 140px 24px 60px;
           }
           .hero-container {
             flex-direction: column;
-            gap: 48px;
+            gap: 60px;
             text-align: center;
           }
           .hero-content {
@@ -308,27 +307,27 @@ export default function HeroSection() {
             max-width: 100%;
           }
           .hero-title {
-            font-size: 44px;
+            font-size: 52px;
           }
         }
 
         @media (max-width: 768px) {
           .hero-title {
-            font-size: 38px;
+            font-size: 42px;
           }
           .hero-images {
             width: 100%;
-            max-width: 420px;
-            height: 360px;
+            max-width: 480px;
+            height: 400px;
           }
           .glow-orb {
-            width: 220px;
-            height: 220px;
+            width: 250px;
+            height: 250px;
           }
           .floating-badge {
             left: 50%;
             transform: translateX(-50%);
-            bottom: -16px;
+            bottom: -20px;
             width: max-content;
             animation: floatMobile 5s ease-in-out infinite;
           }
@@ -342,13 +341,13 @@ export default function HeroSection() {
 
         @media (max-width: 480px) {
           .hero-title {
-            font-size: 32px;
+            font-size: 36px;
           }
           .hero-desc {
-            font-size: 14px;
+            font-size: 16px;
           }
           .hero-images {
-            height: 280px;
+            height: 320px;
           }
         }
 

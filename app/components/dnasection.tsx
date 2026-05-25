@@ -60,7 +60,7 @@ export default function DNASection() {
         .dna-section {
           width: 100%;
           background-color: #fafafa;
-          padding: 100px 48px;
+          padding: clamp(60px, 8vh, 100px) clamp(24px, 4vw, 48px);
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -76,11 +76,11 @@ export default function DNASection() {
 
         .section-title {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 56px;
+          font-size: clamp(36px, 4vw, 56px);
           font-weight: 800;
           color: #000000;
           text-align: center;
-          margin-bottom: 50px;
+          margin-bottom: clamp(30px, 4vw, 50px);
           letter-spacing: -1px;
           position: relative;
         }
@@ -100,9 +100,9 @@ export default function DNASection() {
         .dna-accordion {
           display: flex;
           width: 100%;
-          height: 750px;
-          gap: 16px;
-          margin-top: 40px;
+          height: clamp(500px, 60vh, 750px);
+          gap: clamp(8px, 1vw, 16px);
+          margin-top: clamp(24px, 3vw, 40px);
         }
 
         .dna-card {
@@ -154,12 +154,12 @@ export default function DNASection() {
 
         .dna-title-vertical {
           position: absolute;
-          bottom: 50px;
+          bottom: clamp(20px, 4vw, 50px);
           left: 50%;
           transform: translateX(-50%) rotate(180deg);
           writing-mode: vertical-rl;
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 24px;
+          font-size: clamp(16px, 1.5vw, 24px);
           font-weight: 700;
           color: #ffffff;
           letter-spacing: 2px;
@@ -175,9 +175,9 @@ export default function DNASection() {
 
         .dna-content-expanded {
           position: absolute;
-          bottom: 50px;
-          left: 50px;
-          right: 50px;
+          bottom: clamp(20px, 4vw, 50px);
+          left: clamp(20px, 4vw, 50px);
+          right: clamp(20px, 4vw, 50px);
           opacity: 0;
           transform: translateY(30px);
           transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
@@ -192,7 +192,7 @@ export default function DNASection() {
 
         .dna-number {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 18px;
+          font-size: clamp(14px, 1.2vw, 18px);
           font-weight: 800;
           color: #000000;
           background-color: #ffffff;
@@ -207,17 +207,17 @@ export default function DNASection() {
 
         .dna-title {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 52px;
+          font-size: clamp(32px, 3.5vw, 52px);
           font-weight: 800;
           color: #000000;
-          margin-bottom: 16px;
+          margin-bottom: clamp(8px, 1vw, 16px);
           letter-spacing: -1px;
           white-space: nowrap;
         }
 
         .dna-desc {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 20px;
+          font-size: clamp(14px, 1.2vw, 20px);
           color: #1a1a1a;
           line-height: 1.6;
           font-weight: 600;

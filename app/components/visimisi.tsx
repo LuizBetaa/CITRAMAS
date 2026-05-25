@@ -49,7 +49,7 @@ export default function VisiMisiSection() {
           background-size: cover;
           background-position: center top;
           background-attachment: fixed;
-          padding: 100px 48px;
+          padding: clamp(60px, 8vh, 100px) clamp(24px, 4vw, 48px);
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -58,11 +58,11 @@ export default function VisiMisiSection() {
         /* Common Styles */
         .section-title {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 56px;
+          font-size: clamp(36px, 4vw, 56px);
           font-weight: 800;
           color: #ffffff;
           text-align: center;
-          margin-bottom: 40px;
+          margin-bottom: clamp(24px, 3vw, 40px);
           letter-spacing: -1px;
           position: relative;
         }
@@ -86,23 +86,23 @@ export default function VisiMisiSection() {
           -webkit-backdrop-filter: blur(30px);
           width: 100%;
           max-width: 1100px;
-          padding: 80px 60px;
-          border-radius: 40px;
+          padding: clamp(40px, 5vw, 80px) clamp(30px, 4vw, 60px);
+          border-radius: clamp(24px, 3vw, 40px);
           box-shadow: 
             0 25px 50px rgba(0, 0, 0, 0.4),
             inset 0 0 30px rgba(255, 255, 255, 0.05);
           text-align: center;
-          margin-bottom: 80px;
+          margin-bottom: clamp(40px, 5vw, 80px);
           border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .visi-statement {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 32px;
+          font-size: clamp(20px, 2.5vw, 32px);
           font-weight: 700;
           color: #ffffff;
           line-height: 1.5;
-          margin-top: 30px;
+          margin-top: clamp(20px, 2.5vw, 30px);
         }
 
         .text-yellow {
@@ -201,7 +201,7 @@ export default function VisiMisiSection() {
 
         .misi-title {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 20px;
+          font-size: clamp(16px, 1.5vw, 20px);
           font-weight: 800;
           color: #ffffff;
           margin-bottom: 12px;
@@ -210,7 +210,7 @@ export default function VisiMisiSection() {
 
         .misi-desc {
           font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 15px;
+          font-size: clamp(13px, 1.1vw, 15px);
           color: rgba(255, 255, 255, 0.8);
           line-height: 1.6;
           font-weight: 500;
